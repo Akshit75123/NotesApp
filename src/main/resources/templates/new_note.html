@@ -1,0 +1,27 @@
+<!-- templates/new_note.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Note</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Add New Note</h1>
+    <form th:action="@{/saveNote}" th:object="${note}" method="post">
+        <div class="form-row">
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" th:field="*{title}" required />
+            </div>
+            <div class="form-group">
+                <label>Content</label>
+                <textarea th:field="*{content}" required></textarea>
+            </div>
+        </div>
+        <button type="submit" class="btn add-btn">Save Note</button>
+        <a href="/" class="btn update-btn">Back</a>
+    </form>
+</div>
+</body>
+</html>
